@@ -1,0 +1,13 @@
+**/target/
+.idea
+*.iml
+*.class
+*Test.java
+**/test/
+
+# 忽略所有模块的编译输出
+**/target/
+
+# 忽略所有模块的test输出
+**/test/
+
