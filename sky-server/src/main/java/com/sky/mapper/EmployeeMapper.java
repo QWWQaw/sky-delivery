@@ -1,8 +1,14 @@
 package com.sky.mapper;
 
+import com.github.pagehelper.Page;
+import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface EmployeeMapper {
@@ -15,4 +21,16 @@ public interface EmployeeMapper {
     @Select("select * from employee where username = #{username}")
     Employee getByUsername(String username);
 
+
+    Integer insert(Employee employee);
+
+    @Select("select * from employee where id = #{id}")
+    Employee getById(Integer id);
+
+    void update(Employee emp);
+
+    Page<Employee> page(EmployeePageQueryDTO empPageDto);
+
+    @Delete("delete from employee where id = #{id}")
+    void deleteById(Integer id);
 }
