@@ -82,6 +82,11 @@ public class EmployeeController {
         return Result.success();
     }
 
+    /**
+     * 新增员工
+     * @param empDto
+     * @return
+     */
     @PostMapping()
     @ApiOperation("新增员工接口")
     public Result add(@RequestBody EmployeeDTO empDto) {
@@ -91,6 +96,11 @@ public class EmployeeController {
         return Result.success();
     }
 
+    /**
+     * 根据id查询员工
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     @ApiOperation("根据id查询员工接口")
     public Result<Employee> getById(@PathVariable Integer id) {
@@ -98,6 +108,11 @@ public class EmployeeController {
         return Result.success(employee);
     }
 
+    /**
+     *
+     * @param empDto
+     * @return
+     */
     @PutMapping
     @ApiOperation("编辑员工接口")
     public Result update(@RequestBody EmployeeDTO empDto) {
@@ -105,6 +120,11 @@ public class EmployeeController {
         return Result.success();
     }
 
+    /**
+     *
+     * @param empPageDto
+     * @return
+     */
     @GetMapping("/page")
     @ApiOperation("员工分页查询接口")
     public Result page(EmployeePageQueryDTO empPageDto) {
@@ -117,10 +137,28 @@ public class EmployeeController {
         return Result.success(data);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @DeleteMapping("/{id}")
     @ApiOperation("员工删除接口")
     public Result delete(@PathVariable Integer id) {
         employeeService.delete(id);
+        return Result.success();
+    }
+
+    /**
+     *
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    @ApiOperation("员工状态修改接口")
+    public Result startOrStop(@PathVariable Integer status, Integer id) {
+        employeeService.startOrStop(status, id);
         return Result.success();
     }
 

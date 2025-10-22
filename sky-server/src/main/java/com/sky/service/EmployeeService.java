@@ -38,4 +38,6 @@ public interface EmployeeService {
     Page<Employee> page(EmployeePageQueryDTO empPageDto);
 
     void delete(Integer id);
+
+    void startOrStop(Integer status, Integer id);
 }

@@ -33,4 +33,6 @@ public interface EmployeeMapper {
 
     @Delete("delete from employee where id = #{id}")
     void deleteById(Integer id);
+
+    void startOrStop(Integer status, Integer id);
 }

@@ -108,4 +108,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeMapper.deleteById(id);
     }
 
+    @Override
+    public void startOrStop(Integer status, Integer id) {
+        employeeMapper.startOrStop(status, id);
+    }
+
 }
