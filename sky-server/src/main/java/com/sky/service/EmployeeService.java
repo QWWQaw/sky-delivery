@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
+import com.sky.dto.PasswordEditDTO;
 import com.sky.entity.Employee;
 
 public interface EmployeeService {
@@ -27,7 +28,7 @@ public interface EmployeeService {
      * @param id
      * @return
      */
-    Employee getById(Integer id);
+    Employee getById(Long id);
 
     /**
      * 根据id来更新员工
@@ -40,4 +41,6 @@ public interface EmployeeService {
     void delete(Integer id);
 
     void startOrStop(Integer status, Integer id);
+
+    void editPassword(PasswordEditDTO passwordEditDTO);
 }
